@@ -2,6 +2,7 @@ import axios from 'axios';
 import schedule from 'node-schedule';
 
 // 定義要請求的 URL
+console.log("=== running");
 const url = 'http://ssport.x10.mx/help/help/api/rcron.php';
 
 // 設定每 5 秒執行一次的排程
