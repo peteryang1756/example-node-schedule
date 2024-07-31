@@ -1,9 +1,5 @@
-import express from 'express';
 import axios from 'axios';
 import schedule from 'node-schedule';
-
-const app = express();
-const port = process.env.PORT || 3000;
 
 // 定義要請求的 URL
 const url = 'http://ssport.x10.mx/help/help/api/rcron.php';
@@ -21,13 +17,4 @@ schedule.scheduleJob('*/5 * * * * *', async () => {
   } catch (error) {
     console.error('請求失敗:', error);
   }
-});
-
-// 設定基本的 Express 伺服器
-app.get('/', (req, res) => {
-  res.send('Server is running');
-});
-
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
 });
