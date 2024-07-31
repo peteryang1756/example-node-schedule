@@ -1,8 +1,16 @@
+import express from 'express';
 import axios from 'axios';
 import schedule from 'node-schedule';
 
+const app = express();
+const port = process.env.PORT || 3000;
+
+// 定義 health check 路由
+app.get('/health', (req, res) => {
+  res.send('OK');
+});
+
 // 定義要請求的 URL
-console.log("=== running");
 const url = 'http://ssport.x10.mx/help/help/api/rcron.php';
 
 // 設定每 5 秒執行一次的排程
@@ -18,4 +26,8 @@ schedule.scheduleJob('*/5 * * * * *', async () => {
   } catch (error) {
     console.error('請求失敗:', error);
   }
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
