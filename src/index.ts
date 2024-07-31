@@ -1,11 +1,11 @@
 import axios from 'axios';
-import cron from 'node-cron';
+import schedule from 'node-schedule';
 
 // 定義要請求的 URL
 const url = 'http://ssport.x10.mx/help/help/api/rcron.php';
 
 // 設定每 5 秒執行一次的排程
-cron.schedule('*/5 * * * * *', async () => {
+schedule.scheduleJob('*/5 * * * * *', async () => {
   try {
     console.log('發送請求:', url);
     const response = await axios.get(url);
