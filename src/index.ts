@@ -1,8 +1,6 @@
-import express from 'express';
 import axios from 'axios';
 import schedule from 'node-schedule';
 
-const port = process.env.PORT || 3000;
 
 // 定義 health check 路由
 app.get('/health', (req, res) => {
