@@ -2,7 +2,6 @@ import express from 'express';
 import axios from 'axios';
 import schedule from 'node-schedule';
 
-const app = express();
 const port = process.env.PORT || 3000;
 
 // 定義 health check 路由
@@ -28,6 +27,3 @@ schedule.scheduleJob('*/5 * * * * *', async () => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
